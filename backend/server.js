@@ -23,9 +23,9 @@ app.get("/", (req, res) => {
       if (!phone) return res.status(400).json({ success: false, message: "Phone number required" });
 
         try {
-          const verification = await client.verify.v2.services("VAf925e273428e45986486df0500aa4b57")
+          const verification = await client.verify.v2.services("VA79a02560f448f48d78b6c3faa6e86aeb")
   .verifications
-  .create({ to: `whatsapp:${phone}`, channel: "whatsapp" });
+  .create({ to: phone, channel: "sms" });
 
                       res.json({ success: true, message: "OTP sent successfully!", status: verification.status });
                         } catch (err) {
